@@ -28,7 +28,7 @@ public class UserService {
         usuario.setId(id); // Garante que o ID passado seja o mesmo do usuário a ser atualizado
         return userRepository.save(usuario);
     }
-
+ 
     // Ler informações de um usuário específico
     public Usuario lerUsuario(Long id) {
         return userRepository.findById(id).orElse(null);
