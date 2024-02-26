@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping("/usuarios")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+
+        this.userService = userService;
+    }
 
     // Endpoint para adicionar um novo usuário
     @PostMapping("/adicionar")

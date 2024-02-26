@@ -1,18 +1,36 @@
-package com.example.model;
+package com.example.tests.UserController;
 
 import java.util.Date;
 
-public class Usuario {
+public class UsuarioTest {
+    public static void main(String[] args) {
+        // Criando um objeto Usuario para teste
+        Long id = 1L;
+        String cpf = "123.456.789-00";
+        String senha = "senha123";
+        String nomeCompleto = "Fulano de Tal";
+        String email = "fulano@example.com";
+        Date dataNascimento = new Date(); // Data de nascimento atual, apenas para exemplo
+
+        Usuario usuario = new Usuario(id, cpf, senha, nomeCompleto, email, dataNascimento);
+
+        // Testando se os atributos foram atribuídos corretamente
+        System.out.println("ID: " + usuario.getId());
+        System.out.println("CPF: " + usuario.getCpf());
+        System.out.println("Senha: " + usuario.getSenha());
+        System.out.println("Nome Completo: " + usuario.getNomeCompleto());
+        System.out.println("Email: " + usuario.getEmail());
+        System.out.println("Data de Nascimento: " + usuario.getDataNascimento());
+    }
+}
+
+class Usuario {
     private Long id;
     private String cpf;
     private String senha;
     private String nomeCompleto;
     private String email;
     private Date dataNascimento;
-
-    // Construtores
-    public Usuario() {
-    }
 
     public Usuario(Long id, String cpf, String senha, String nomeCompleto, String email, Date dataNascimento) {
         this.id = id;
@@ -22,7 +40,6 @@ public class Usuario {
         this.email = email;
         this.dataNascimento = dataNascimento;
     }
-
 
     // Getters e Setters
     public Long getId() {
@@ -71,18 +88,5 @@ public class Usuario {
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    // toString() para representação do objeto
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", cpf='" + cpf + '\'' +
-                ", senha='" + senha + '\'' +
-                ", nomeCompleto='" + nomeCompleto + '\'' +
-                ", email='" + email + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                '}';
     }
 }
