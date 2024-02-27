@@ -1,4 +1,4 @@
-package Tests;
+package UserControllerTest;
 
 import java.util.Date;
 
