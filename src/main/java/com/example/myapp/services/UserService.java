@@ -1,10 +1,10 @@
 package com.example.myapp.services;
 
+import com.example.myapp.controller.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.myapp.model.Usuario;
-
 
 
 import java.util.List;
@@ -12,8 +12,12 @@ import java.util.List;
 @Service
 public class UserService {
 
+    private final UserRepository userRepository;
+
     @Autowired
-    private com.example.controller.UserRepository userRepository;
+    public UserService (UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     // Adicionar um novo usuário
     public Usuario adicionarUsuario(Usuario usuario) {
