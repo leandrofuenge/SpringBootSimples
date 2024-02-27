@@ -2,11 +2,7 @@ pipeline {
     agent any // Define que o pipeline pode ser executado em qualquer agente disponível
 
     stages { // Define os estágios do pipeline
-        stage('Clonar Repositório') { // Primeiro estágio: Clonar o repositório do Git
-            steps {
-                git 'https://github.com/seu-usuario/seu-repositorio.git' // Clona o repositório do Git
-            }
-        }
+
 
         stage('Compilar') { // Segundo estágio: Compilar o código
             steps {
@@ -27,10 +23,6 @@ pipeline {
             }
         }
 
-        stage('Implantar') { // Quinto estágio: Implantação da aplicação
-            steps {
-                sh 'ssh usuario@servidor "comando de implantação"' // Exemplo de implantação via SSH
-            }
         }
     }
 
