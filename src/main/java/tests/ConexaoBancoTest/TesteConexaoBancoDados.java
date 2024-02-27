@@ -1,11 +1,11 @@
-package com.example.tests;
+package tests.ConexaoBancoTest;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class TesteConexaoBancoDados {
-    public static void main(String[] args) {
+    public boolean testarConexao() {
         Connection conexao = null;
         String url = "jdbc:mysql://localhost:3306/teste";
         String usuario = "root";
@@ -15,19 +15,15 @@ public class TesteConexaoBancoDados {
             // Registrar o driver JDBC
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Estabelecer conexao com o banco de dados
-            conexao = DriverManager.getConnection(url, usuario,senha);
+            // Estabelecer conexão com o banco de dados
+            conexao = DriverManager.getConnection(url, usuario, senha);
 
-            if (conexao != null) {
-                System.out.println("Conexao bem-sucedida!");
-            } else {
-                System.out.println("Falha ao conectar ao banco de dados.");
-            }
+            return (conexao != null);
         } catch (ClassNotFoundException e) {
-            System.out.println("Driver JDBC nao encontrado.");
+            System.out.println("Driver JDBC não encontrado.");
             e.printStackTrace();
         } catch (SQLException e) {
-            System.out.println("Falha na conexao com o banco de dados.");
+            System.out.println("Falha na conexão com o banco de dados.");
             e.printStackTrace();
         } finally {
             try {
@@ -38,5 +34,6 @@ public class TesteConexaoBancoDados {
                 e.printStackTrace();
             }
         }
+        return false;
     }
 }

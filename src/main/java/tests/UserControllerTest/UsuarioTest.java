@@ -1,6 +1,7 @@
-package com.example.tests.UserController;
+package tests.UserControllerTest;
 
 import java.util.Date;
+
 
 public class UsuarioTest {
     public static void main(String[] args) {
