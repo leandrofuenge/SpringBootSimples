@@ -1,10 +1,6 @@
-package com.example.myapp.controllers.UserControllerTest;/*
- * UsuarioTest.java
- *
- * Este arquivo contém testes para verificar a atribuição correta dos atributos da classe Usuario.
- * Ele cria um objeto Usuario com valores específicos e verifica se os atributos foram atribuídos corretamente.
- */
+package com.example.myapp.controllers.UserControllerTest;
 
+import com.example.myapp.model.Usuario;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -22,7 +18,7 @@ public class UsuarioJunitTest {
         String nomeCompleto = "Fulano de Tal";
         String email = "fulano@example.com";
         Date dataNascimento = new Date(); // Data de nascimento atual, apenas para exemplo
-        com.example.model.Usuario usuario = new com.example.model.Usuario(id, cpf, senha, nomeCompleto, email, dataNascimento);
+        Usuario usuario = new Usuario(id, cpf, senha, nomeCompleto, email, dataNascimento);
 
         // Testando se os atributos foram atribuídos corretamente
         assertEquals(id, usuario.getId(), "ID não corresponde");

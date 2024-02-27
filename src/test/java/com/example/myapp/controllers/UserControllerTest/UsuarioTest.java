@@ -1,4 +1,4 @@
-package tests.UserControllerTest;
+package com.example.myapp.controllers.UserControllerTest;
 
 import java.util.Date;
 
