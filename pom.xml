@@ -13,7 +13,7 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>crud</artifactId>
+	<artifactId>SpringBootSimples</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>crud</name>
 	<description>Project Simples Spring Boot</description>
@@ -86,10 +86,17 @@
 
 	<build>
 		<plugins>
+
+
+			<!-- Plugin para empacotar o projeto Spring Boot -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+
+
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -98,15 +105,15 @@
 					<mainClass>com.example.SpringApplication.CrudApplication</mainClass>
 				</configuration>
 			</plugin>
+
+
+
+			<!-- Plugin para execução de testes -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
-					<includes>
-						<include>tests.</include>
-						<include>tests.UserControllerTest.UsuarioJunitTest</include>
-					</includes>
 				</configuration>
 			</plugin>
 		</plugins>
