@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Comando para compilar o código usando Maven
-                    sh 'mvn clean compile'
+                    bat 'mvn clean compile'
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Comando para executar os testes usando Maven
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
         }
