@@ -1,9 +1,11 @@
-package com.example.controller;
+package com.example.myapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.Usuario;
+import com.example.myapp.model.Usuario;
+
+
 
 import java.util.List;
 
@@ -11,7 +13,7 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private com.example.controller.UserRepository userRepository;
 
     // Adicionar um novo usuário
     public Usuario adicionarUsuario(Usuario usuario) {

@@ -1,4 +1,4 @@
-package tests.ConexaoBancoTest;
+package com.example.myapp.services.ConexaoBancoTest;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.myapp.model;
 
 import java.util.Date;
 
