@@ -1,20 +1,18 @@
 package com.example.myapp.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Objects;
 
 public class Usuario {
     private Long id;
-    private String cpf;
-    private String senha;
-    private String nomeCompleto;
-    private String email;
-    private Date dataNascimento;
+    private final String cpf;
+    private final char[] senha;
+    private final String nomeCompleto;
+    private final String email;
+    private final LocalDate dataNascimento;
 
-    // Construtores
-    public Usuario() {
-    }
-
-    public Usuario(Long id, String cpf, String senha, String nomeCompleto, String email, Date dataNascimento) {
+    // Construtor
+    public Usuario(Long id, String cpf, char[] senha, String nomeCompleto, String email, LocalDate dataNascimento) {
         this.id = id;
         this.cpf = cpf;
         this.senha = senha;
@@ -23,54 +21,48 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-
-    // Getters e Setters
-    public Long getId() {
-        return id;
-    }
+    // Getters
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public char[] getSenha() {
+        return senha.clone(); // Retorna uma cópia da senha para garantir imutabilidade
     }
 
     public String getNomeCompleto() {
         return nomeCompleto;
     }
 
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
-    }
-
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    // Equals e HashCode
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return Objects.equals(id, usuario.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     // toString() para representação do objeto
@@ -79,7 +71,6 @@ public class Usuario {
         return "Usuario{" +
                 "id=" + id +
                 ", cpf='" + cpf + '\'' +
-                ", senha='" + senha + '\'' +
                 ", nomeCompleto='" + nomeCompleto + '\'' +
                 ", email='" + email + '\'' +
                 ", dataNascimento=" + dataNascimento +
