@@ -69,16 +69,16 @@
         event.preventDefault();
 
         const formData = new FormData(event.target);
-        const usuario = Object.fromEntries(formData.entries());
+        const usuarioDAO = Object.fromEntries(formData.entries());
 
         try {
             // Enviar os dados do usuário para o backend
-            const response = await fetch('/usuarios/adicionar', {
+            const response = await fetch('/usuarioDAOS/adicionar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(usuario)
+                body: JSON.stringify(usuarioDAO)
             });
 
             if (response.ok) {

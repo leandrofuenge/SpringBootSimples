@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class UsuarioTest {
     public static void main(String[] args) {
-        // Criando um objeto Usuario para teste
+        // Criando um objeto UsuarioDAO para teste
         Long id = 1L;
         String cpf = "123.456.789-00";
         String senha = "senha123";

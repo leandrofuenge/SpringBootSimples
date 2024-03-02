@@ -1,19 +1,15 @@
 package com.example.myapp.model;
 
-import java.time.LocalDate;
-import java.util.Objects;
+import java.util.Date;
 
 public class Usuario {
-    private Long id;
     private final String cpf;
-    private final char[] senha;
+    private final String senha;
     private final String nomeCompleto;
     private final String email;
-    private final LocalDate dataNascimento;
+    private final Date dataNascimento;
 
-    // Construtor
-    public Usuario(Long id, String cpf, char[] senha, String nomeCompleto, String email, LocalDate dataNascimento) {
-        this.id = id;
+    public Usuario(String cpf, String senha, String nomeCompleto, String email, Date dataNascimento) {
         this.cpf = cpf;
         this.senha = senha;
         this.nomeCompleto = nomeCompleto;
@@ -21,22 +17,12 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    // Getters
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
     public String getCpf() {
         return cpf;
     }
 
-    public char[] getSenha() {
-        return senha.clone(); // Retorna uma cópia da senha para garantir imutabilidade
+    public String getSenha() {
+        return senha;
     }
 
     public String getNomeCompleto() {
@@ -47,30 +33,14 @@ public class Usuario {
         return email;
     }
 
-    public LocalDate getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    // Equals e HashCode
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    // toString() para representação do objeto
     @Override
     public String toString() {
         return "Usuario{" +
-                "id=" + id +
-                ", cpf='" + cpf + '\'' +
+                "cpf='" + cpf + '\'' +
                 ", nomeCompleto='" + nomeCompleto + '\'' +
                 ", email='" + email + '\'' +
                 ", dataNascimento=" + dataNascimento +
