@@ -39,23 +39,43 @@ public class UserServiceImpl implements UserService {
         User existingUser = userRepository.findById(user.getId()).get();
 
 
+        //// CADASTRO ////
+
+        // Dados Pessoais
 
         existingUser.setNomeCompleto(user.getNomeCompleto());
 
-        existingUser.setEmail(user.getEmail());
-
-
         existingUser.setCPF(user.getCPF());
-
-
-        existingUser.setSenha(user.getSenha());
-
 
         existingUser.setRG(user.getRG());
 
+        existingUser.setDataDeNascimento(user.getDataDeNascimento());
+
+        existingUser.setSexo(user.getSexo());
+
+        // Endereco
+
+        existingUser.setCEP(user.getCEP());
+
+        existingUser.setEndereco(user.getEndereco());
+
+        existingUser.setNumero(user.getNumero());
+
+        existingUser.setBairro(user.getBairro());
+
+        existingUser.setCidade(user.getCidade());
+
+        existingUser.setEstado(user.getEstado());
+
+        //Online
+
+        existingUser.setEmail(user.getEmail());
+
+        existingUser.setSenha(user.getSenha());
+
+        //Telefone
 
         existingUser.setCelular(user.getCelular());
-
 
         User updatedUser = userRepository.save(existingUser);
         return updatedUser;
