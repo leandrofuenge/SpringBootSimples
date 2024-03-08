@@ -21,16 +21,16 @@ public class User {
     //Dados Pessoais
 
     @Column(nullable = false)
-    private String nomeCompleto;
+    private String nomecompleto;
 
     @Column(nullable = false)
-    private String CPF;
+    private String cpf;
 
     @Column(nullable = false)
-    private String RG;
+    private String rg;
 
     @Column(nullable = false)
-    private String DataDeNascimento;
+    private String datadenascimento;
 
     @Column(nullable = false)
     private String sexo;
@@ -38,22 +38,22 @@ public class User {
     // Endereço
 
     @Column(nullable = false)
-    private String CEP;
+    private String cep;
 
     @Column(nullable = false)
-    private String Endereco;
+    private String endereco;
 
     @Column(nullable = false)
     private String numero;
 
     @Column(nullable = false)
-    private String Bairro;
+    private String bairro;
 
     @Column(nullable = false)
-    private String Cidade;
+    private String cidade;
 
     @Column(nullable = false)
-    private String Estado;
+    private String estado;
 
     // Online
     @Column(nullable = false, unique = true)

@@ -4,12 +4,9 @@ import lombok.AllArgsConstructor;
 import net.Spring.springboot.entity.User;
 import net.Spring.springboot.repository.UserRepository;
 import net.Spring.springboot.service.UserService;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -29,6 +26,7 @@ public class UserServiceImpl implements UserService {
         return optionalUser.get();
     }
 
+
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -43,19 +41,19 @@ public class UserServiceImpl implements UserService {
 
         // Dados Pessoais
 
-        existingUser.setNomeCompleto(user.getNomeCompleto());
+        existingUser.setNomecompleto(user.getNomecompleto());
 
-        existingUser.setCPF(user.getCPF());
+        existingUser.setCpf(user.getCpf());
 
-        existingUser.setRG(user.getRG());
+        existingUser.setRg(user.getRg());
 
-        existingUser.setDataDeNascimento(user.getDataDeNascimento());
+        existingUser.setDatadenascimento(user.getDatadenascimento());
 
         existingUser.setSexo(user.getSexo());
 
         // Endereco
 
-        existingUser.setCEP(user.getCEP());
+        existingUser.setCep(user.getCep());
 
         existingUser.setEndereco(user.getEndereco());
 
@@ -77,8 +75,7 @@ public class UserServiceImpl implements UserService {
 
         existingUser.setCelular(user.getCelular());
 
-        User updatedUser = userRepository.save(existingUser);
-        return updatedUser;
+        return userRepository.save(existingUser);
     }
 
     @Override
