@@ -24,12 +24,13 @@ public class UserController {
     }
 
     // build get user by id REST API
-    // http://localhost:8080/api/users/13
+    // http://localhost:8080/api/users/1
     @GetMapping("{id}")
     public ResponseEntity<User> getUserById(@PathVariable("id") Long userId){
         User user = userService.getUserById(userId);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
 
     // Build Get All Users REST API
     // http://localhost:8080/api/users
@@ -41,7 +42,7 @@ public class UserController {
 
     // Build Update User REST API
     @PutMapping("{id}")
-    // http://localhost:8080/api/users/13
+    // http://localhost:8080/api/users/1
     public ResponseEntity<User> updateUser(@PathVariable("id") Long userId,
                                            @RequestBody User user){
         user.setId(userId);
