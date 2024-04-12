@@ -71,5 +71,10 @@ public class Usuario {
     @Column(nullable = false)
     private Double saldodisponivel;
 
+    // Limite Mensal
+    private Double mensal;
+
+
+
     // Outros construtores, getters e setters
 }
