@@ -34,7 +34,7 @@ public class AdminService {
     public Usuario modificarUsuarioPorCpf(String cpf, Usuario usuario) {
         Usuario usuarioExistente = obterUsuarioPorCpf(cpf);
         if (usuarioExistente != null) {
-            usuarioExistente.setNomecompleto(usuario.getNomecompleto());
+            usuarioExistente.setNomeCompleto(usuario.getNomeCompleto());
             usuarioExistente.setEmail(usuario.getEmail());
             // Continue atualizando outros campos conforme necessário
             return usuarioRepository.save(usuarioExistente);

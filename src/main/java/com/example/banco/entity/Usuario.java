@@ -14,6 +14,7 @@ import lombok.Setter;
 @Table(name = "SISTEMABANCOUSUARIOS")
 public class Usuario {
 
+    // Getters and Setters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +22,7 @@ public class Usuario {
     //Dados Pessoais
 
     @Column(nullable = false)
-    private String nomecompleto;
+    private String nomeCompleto;
 
     @Column(nullable = false)
     private String cpf;
@@ -30,7 +31,7 @@ public class Usuario {
     private String rg;
 
     @Column(nullable = false)
-    private String datadenascimento;
+    private String dataDeNascimento;
 
     @Column(nullable = false)
     private String sexo;
@@ -71,10 +72,29 @@ public class Usuario {
     @Column(nullable = false)
     private Double saldodisponivel;
 
+    //****************//****************//****************//****************//****************
+
+    //---Limites para Saque---//
+
+    //Limites Totais//
+
     // Limite Mensal
     private Double mensal;
 
+    // Limite Diario
+    private Double diario;
 
+    //-----Limites sem cartao-----//
+    private Double semcartao;
 
-    // Outros construtores, getters e setters
+    //****************//****************//****************//****************//****************
+
+    //--Limites para pagamento--//
+
+    //Limites totais//
+
+    private Double MensalPagamento;
+    private Double DiarioPagamento;
+    private Double MensalAgendamentoPagamento;
+    private Double DiarioAgendamentoPagamento;
 }

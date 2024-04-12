@@ -1,11 +1,13 @@
 package com.example.banco.controller;
 
+import com.example.banco.model.LimitesDTO;
+import com.example.banco.model.LimitesPagamentoDTO;
 import com.example.banco.service.MeusLimitesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/meus")
+@RequestMapping("/meus limites")
 public class MeusLimitesController {
 
     private final MeusLimitesService meusLimitesService;
@@ -15,13 +17,24 @@ public class MeusLimitesController {
     }
 
     // Endpoint para visualizar meus limites
-    @GetMapping("/limites")
-    public ResponseEntity<Double> visualizarLimitesParaSaque(@RequestParam String cpf) {
-        Double meusLimites = meusLimitesService.visualizarLimitesParaSaque(cpf);
+    @GetMapping("/Saque")
+    public ResponseEntity<LimitesDTO> visualizarLimitesParaSaque(@RequestParam String cpf) {
+        LimitesDTO meusLimites = meusLimitesService.visualizarLimitesParaSaque(cpf);
         if (meusLimites != null) {
             return ResponseEntity.ok(meusLimites);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/Pagamento")
+    public ResponseEntity<LimitesPagamentoDTO> visualizarLimitesPagamento(@RequestParam String cpf) {
+      LimitesPagamentoDTO limitesPagamentoDTO = meusLimitesService.visualizarLimitesPagamento(cpf);
+      if (limitesPagamentoDTO != null) {
+          return ResponseEntity.ok(limitesPagamentoDTO);
+      } else {
+          return ResponseEntity.notFound().build();
+      }
+    }
 }
+
