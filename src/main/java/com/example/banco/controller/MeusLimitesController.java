@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/meus limites")
+@RequestMapping("api/meus-limites")
 public class MeusLimitesController {
 
     private final MeusLimitesService meusLimitesService;

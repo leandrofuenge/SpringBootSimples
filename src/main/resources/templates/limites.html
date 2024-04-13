@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumindo API REST com Axios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+
+        .limites {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+
+        .limites h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .limites p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+<h1>Visualização de Limites</h1>
+
+<div class="container">
+    <div id="saqueLimites" class="limites">
+        <h2>Limites para Saque</h2>
+        <p id="saqueInfo">Carregando...</p>
+    </div>
+
+    <div id="pagamentoLimites" class="limites">
+        <h2>Limites de Pagamento</h2>
+        <p id="pagamentoInfo">Carregando...</p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const baseURL = 'http://192.168.1.17:7080/api/meus-limites';
+
+    async function visualizarLimitesParaSaque(cpf) {
+        try {
+            const response = await axios.get(`${baseURL}/Saque?cpf=${cpf}`);
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao visualizar limites para saque:', error);
+            return null;
+        }
+    }
+
+    async function visualizarLimitesPagamento(cpf) {
+        try {
+            const response = await axios.get(`${baseURL}/Pagamento?cpf=${cpf}`);
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao visualizar limites de pagamento:', error);
+            return null;
+        }
+    }
+
+    const cpf = '123.456.789-00'; // Substitua pelo CPF desejado
+
+    visualizarLimitesParaSaque(cpf)
+        .then(limites => {
+            const saqueInfo = document.getElementById('saqueInfo');
+            saqueInfo.innerText = JSON.stringify(limites, null, 2);
+        })
+        .catch(error => console.error('Erro:', error));
+
+    visualizarLimitesPagamento(cpf)
+        .then(limitesPagamento => {
+            const pagamentoInfo = document.getElementById('pagamentoInfo');
+            pagamentoInfo.innerText = JSON.stringify(limitesPagamento, null, 2);
+        })
+        .catch(error => console.error('Erro:', error));
+</script>
+</body>
+</html>
