@@ -16,7 +16,7 @@ public class MeusLimitesService {
     private EntityManager entityManager;
 
     public LimitesDTO visualizarLimitesParaSaque(String cpf) {
-        Query query = entityManager.createNativeQuery("SELECT MENSAL, DIARIO, SEMCARTAO FROM SISTEMABANCOUSUARIOS WHERE CPF = :cpf");
+        Query query = entityManager.createNativeQuery("SELECT limite, LIMITE_MENSAL, LIMITE_SEM_CARTAO FROM tabela_limites_saque WHERE CPF = :cpf");
         query.setParameter("cpf", cpf);
 
         Object[] result = (Object[]) query.getSingleResult();
