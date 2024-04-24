@@ -10,9 +10,14 @@ public class LimitesSaque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double limiteMensal;
-    private Double limiteDiario;
-    private Double limiteSemCartao;
+    private Double limiteMensalSaque;
+    private Double limiteDiarioSaque;
+    private Double limiteSemCartaoSaque;
+
+    @OneToOne
+    @JoinColumn(name = "informacoes_pessoais_id")
+    private InformacoesPessoais informacoesPessoais;
+
 
     // getters e setters
 }

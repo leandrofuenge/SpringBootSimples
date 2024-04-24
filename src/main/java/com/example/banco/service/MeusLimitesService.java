@@ -8,6 +8,7 @@ import jakarta.persistence.Query;
 import com.example.banco.model.LimitesDTO;
 import com.example.banco.model.LimitesPagamentoDTO;
 
+
 @Service
 @Transactional
 public class MeusLimitesService {
@@ -16,7 +17,7 @@ public class MeusLimitesService {
     private EntityManager entityManager;
 
     public LimitesDTO visualizarLimitesParaSaque(String cpf) {
-        Query query = entityManager.createNativeQuery("SELECT limite, LIMITE_MENSAL, LIMITE_SEM_CARTAO FROM tabela_limites_saque WHERE CPF = :cpf");
+        Query query = entityManager.createNativeQuery("SELECT sd.limite_diario_saque, sd.limite_mensal_saque, sd.limite_sem_cartao_saque FROM tabela_limites_saque sd JOIN tabela_informacoes_pessoais ip ON sd.informacoes_pessoais_id = ip.id WHERE ip.cpf = :cpf");
         query.setParameter("cpf", cpf);
 
         Object[] result = (Object[]) query.getSingleResult();
