@@ -15,5 +15,10 @@ public class LimitesPagamento {
     private Double limiteMensalAgendamentoPagamento;
     private Double limiteDiarioAgendamentoPagamento;
 
+    @OneToOne
+    @JoinColumn(name = "informacoes_pessoais_id")
+    private InformacoesPessoais informacoesPessoais;
+
+
     // getters e setters
 }

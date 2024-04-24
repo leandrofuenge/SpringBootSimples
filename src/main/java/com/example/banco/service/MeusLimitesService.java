@@ -34,7 +34,7 @@ public class MeusLimitesService {
 
 
     public LimitesPagamentoDTO visualizarLimitesPagamento(String cpf) {
-        Query query = entityManager.createNativeQuery("SELECT MENSAL_PAGAMENTO, DIARIO_PAGAMENTO, MENSAL_AGENDAMENTO_PAGAMENTO, DIARIO_AGENDAMENTO_PAGAMENTO FROM SISTEMABANCOUSUARIOS WHERE CPF = :cpf");
+        Query query = entityManager.createNativeQuery("SELECT sd.limite_diario_agendamento_pagamento, sd.limite_diario_agendamento_pagamento, sd.limite_mensal_agendamento_pagamento, sd.limite_mensal_pagamento FROM tabela_limites_pagamento sd JOIN tabela_informacoes_pessoais ip ON sd.informacoes_pessoais_id = ip.id WHERE ip.cpf = :cpf");
         query.setParameter("cpf", cpf);
 
         Object[] visualizarlimitepagamento = (Object[]) query.getSingleResult();
