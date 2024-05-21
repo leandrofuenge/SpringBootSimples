@@ -30,5 +30,11 @@ public class Endereco {
     @Column(nullable = false)
     private String estado;
 
+    @OneToOne
+    @JoinColumn(name = "informacoes_pessoais_id")
+    private InformacoesPessoais informacoesPessoais;
+
+
+
     // getters e setters
 }

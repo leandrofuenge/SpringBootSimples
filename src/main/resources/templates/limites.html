@@ -58,12 +58,39 @@
         <h2>Limites de Pagamento</h2>
         <p id="pagamentoInfo">Carregando...</p>
     </div>
+
+    <div id="limiteSaldo" class="limites">
+        <h2>Limites de Saldo</h2>
+        <p id="saldoInfo">Carregando...</p>
+    </div>
+
+
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    const baseURL = 'http://192.168.1.17:7080/api/meus-limites';
 
+
+
+
+    const baseURLsaldo = 'http://192.168.1.2:7080/api/conta';
+    async function visualizarLimitesParaSaldo(cpf) {
+        try {
+            const response = await axios.get (`${baseURLsaldo}/saldo?cpf=${cpf}`);
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao visualizar limites para saldo:', error);
+            return null;
+        }
+    }
+
+
+
+
+
+
+    const baseURL = 'http://192.168.1.2:7080/api/meus-limites';
     async function visualizarLimitesParaSaque(cpf) {
         try {
             const response = await axios.get(`${baseURL}/Saque?cpf=${cpf}`);
@@ -73,6 +100,8 @@
             return null;
         }
     }
+
+
 
     async function visualizarLimitesPagamento(cpf) {
         try {
@@ -84,7 +113,19 @@
         }
     }
 
-    const cpf = '123.456.789-00'; // Substitua pelo CPF desejado
+    const cpf = '123456789'; // Substitua pelo CPF desejado
+
+
+
+    visualizarLimitesParaSaldo(cpf)
+        .then(limiteSaldo => {
+            const saldoInfo = document.getElementById('saldoInfo');
+            saldoInfo.innerText = JSON.stringify(limiteSaldo, null, 2);
+        })
+        .catch(error => console.error('Erro:', error));
+
+
+
 
     visualizarLimitesParaSaque(cpf)
         .then(limites => {
@@ -93,12 +134,19 @@
         })
         .catch(error => console.error('Erro:', error));
 
+
+
     visualizarLimitesPagamento(cpf)
         .then(limitesPagamento => {
             const pagamentoInfo = document.getElementById('pagamentoInfo');
             pagamentoInfo.innerText = JSON.stringify(limitesPagamento, null, 2);
         })
         .catch(error => console.error('Erro:', error));
+
+
+
+
+
 </script>
 </body>
 </html>

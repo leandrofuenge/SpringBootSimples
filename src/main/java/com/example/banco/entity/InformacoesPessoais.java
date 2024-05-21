@@ -29,5 +29,11 @@ public class InformacoesPessoais {
     @Column(nullable = false)
     private String sexo;
 
+    @OneToOne
+    @JoinColumn(name = "informacoes_pessoais_id")
+    private InformacoesPessoais informacoesPessoais;
+
+
+
     // getters e setters
 }

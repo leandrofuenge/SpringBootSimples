@@ -9,7 +9,7 @@ import jakarta.persistence.Query;
 
 @Service
 @Transactional
-public class ContaService {
+public class SaldoDisponivelService {
 
     @PersistenceContext
     private EntityManager entityManager;

@@ -13,5 +13,11 @@ public class Telefone {
     @Column(nullable = false)
     private String celular;
 
+    @OneToOne
+    @JoinColumn(name = "informacoes_pessoais_id")
+    private InformacoesPessoais informacoesPessoais;
+
+
+
     // getters e setters
 }

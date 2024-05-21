@@ -1,23 +1,23 @@
 package com.example.banco.controller;
 
-import com.example.banco.service.ContaService;
+import com.example.banco.service.SaldoDisponivelService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/conta/")
-public class ContaController {
+public class SaldoDisponivelController {
 
-    private final ContaService contaService;
+    private final SaldoDisponivelService contaService;
 
     // Construtor que injeta uma instância de ContaService
-    public ContaController(ContaService contaService) {
+    public SaldoDisponivelController(SaldoDisponivelService contaService) {
         this.contaService = contaService;
     }
 
     // Endpoint para visualizar saldo disponível
-    @GetMapping("saldo")
+    @GetMapping("Saldo")
     public ResponseEntity<Double> visualizarSaldoDisponivel(@RequestParam String cpf) {
         Double saldoDisponivel = contaService.visualizarSaldoDisponivel(cpf);
         if (saldoDisponivel != null) {
